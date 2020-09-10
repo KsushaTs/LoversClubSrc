@@ -1,0 +1,110 @@
+// SASS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home
+//   width: $icon-home-width
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites
+$binance-name: 'binance'
+$binance-x: 0px
+$binance-y: 0px
+$binance-offset-x: 0px
+$binance-offset-y: 0px
+$binance-width: 157px
+$binance-height: 32px
+$binance-total-width: 339px
+$binance-total-height: 72px
+$binance-image: '../img/sprite.png'
+$binance: (0px, 0px, 0px, 0px, 157px, 32px, 339px, 72px, '../img/sprite.png', 'binance', )
+$bitfinex-name: 'bitfinex'
+$bitfinex-x: 167px
+$bitfinex-y: 0px
+$bitfinex-offset-x: -167px
+$bitfinex-offset-y: 0px
+$bitfinex-width: 172px
+$bitfinex-height: 19px
+$bitfinex-total-width: 339px
+$bitfinex-total-height: 72px
+$bitfinex-image: '../img/sprite.png'
+$bitfinex: (167px, 0px, -167px, 0px, 172px, 19px, 339px, 72px, '../img/sprite.png', 'bitfinex', )
+$bitmex-name: 'bitmex'
+$bitmex-x: 167px
+$bitmex-y: 29px
+$bitmex-offset-x: -167px
+$bitmex-offset-y: -29px
+$bitmex-width: 123px
+$bitmex-height: 21px
+$bitmex-total-width: 339px
+$bitmex-total-height: 72px
+$bitmex-image: '../img/sprite.png'
+$bitmex: (167px, 29px, -167px, -29px, 123px, 21px, 339px, 72px, '../img/sprite.png', 'bitmex', )
+$bitstamp-name: 'bitstamp'
+$bitstamp-x: 0px
+$bitstamp-y: 42px
+$bitstamp-offset-x: 0px
+$bitstamp-offset-y: -42px
+$bitstamp-width: 131px
+$bitstamp-height: 30px
+$bitstamp-total-width: 339px
+$bitstamp-total-height: 72px
+$bitstamp-image: '../img/sprite.png'
+$bitstamp: (0px, 42px, 0px, -42px, 131px, 30px, 339px, 72px, '../img/sprite.png', 'bitstamp', )
+$sp-sprite-width: 339px
+$sp-sprite-height: 72px
+$sp-sprite-image: '../img/sprite.png'
+$sp-sprite-sprites: ($binance, $bitfinex, $bitmex, $bitstamp, )
+$sp-sprite: (339px, 72px, '../img/sprite.png', $sp-sprite-sprites, )
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home
+//   @include sprite-width($icon-home)
+//
+// .icon-email
+//   @include sprite($icon-email)
+//
+// Example usage in HTML:
+//   `display: block` sprite:
+//   <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//   // CSS
+//   .icon {
+//     display: inline-block;
+//   }
+//
+//   // HTML
+//   <i class="icon icon-home"></i>
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SASS
+//
+// @include sprites($spritesheet-sprites)
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)

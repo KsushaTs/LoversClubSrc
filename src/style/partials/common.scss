@@ -1,0 +1,200 @@
+body {
+	font-family: $main-font-family;
+	font-size: 16px;
+	color: #7C7C7C;
+	line-height: 1.15;
+}
+	
+
+// Font icons
+.fico {
+	display: inline-block;
+	font-size: 3rem;
+	&::before {
+		display: block;
+	}
+		
+}
+	
+// ----------------------------------
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: #7C7C7C;
+}
+
+img {
+	display: block;
+}
+
+select:focus,
+input:focus,
+button:focus {
+	outline: none;
+}
+
+.wrapper {
+	overflow: hidden;
+}
+
+.container {
+	max-width: 1140px;
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+
+	
+}
+
+.title {
+	font-size: 52px;
+	line-height: 1.2;
+	text-align: center;
+	color: #FFFFFF;
+	@media screen and (max-width: $breakpoint-xs) {
+		font-size: 42px;
+		}
+}
+.subtitle {
+	font-weight: bold;
+	font-size: 32px;
+	line-height: 1.4;
+	color: #FFFFFF;
+	@media screen and (max-width: $breakpoint-xs) {
+		font-size: 25px;
+	}
+}
+
+.text {
+	font-size: 22px;
+	line-height: 1.4;
+	color: #FFFFFF;
+}
+
+.color-pink {
+	color: #FF005C;
+}
+.color-white {
+	color: #FFFFFF;
+}
+.underline {
+	text-decoration: underline;
+}
+
+.list-img {
+	li {
+		position: relative;
+	}
+	li::before {
+		content: '';
+		position: absolute;
+		display: block;
+	}
+}
+
+.button {
+	font-family: $main-font-family;
+	cursor: pointer;
+	user-select: none;
+	line-height: 1;
+	margin: 0 auto;
+	border: none;
+	padding: 18px;
+	border-radius: 50px;
+	font-size: 22px;
+	text-align: center;
+	&_white-br {
+		border: 2px solid  #FFFFFF;
+		background: rgba(0, 0, 0, 0);
+		color: #FFFFFF;
+	}
+	&_pink {
+		background: #FF005C;
+		color: #FFFFFF;
+		transition: background  0.5s, box-shadow  0.5s;
+	}
+	&_pink:hover {
+		transition: background  0.5s, box-shadow  0.5s;
+		background: #FF2372;
+		box-shadow: 0px 0px 11px #FF005C;
+	}
+	&_pink:active {
+		background: #B51B41;
+		box-shadow: none;
+	}
+}
+
+.form {
+	&_purple {
+		border-radius: 20px;
+		background: rgba($color: #8D55D6, $alpha: 0.5);
+
+		::-webkit-input-placeholder {
+			color: rgba(11, 11, 11, 0.7);
+			font-style: italic;
+		}
+	
+		::-moz-placeholder {
+			color: rgba(11, 11, 11, 0.7);
+			font-style: italic;
+		}
+	
+		::placeholder {
+			color: rgba(11, 11, 11, 0.7);
+			font-style: italic;
+		}
+	}
+	
+	&__select,
+	&__input {
+		border: none;
+		font-family: $main-font-family;
+		border-radius: 5px;
+		padding: 10px 15px;
+		width: 100%;
+		font-size: 16px;
+	}
+	&__input_purple {
+		background: rgba(255, 255, 255, 0.2);
+		color: #FFFFFF;
+	}
+
+	&__select_purple {
+		background: rgba(255, 255, 255, 0.2);
+		color: rgba(11, 11, 11, 0.7);
+		option {
+			background: rgba(141,85,214,.5);
+		}
+	}
+	&__button {
+		width: 100%;
+	}
+}
+
+#about a[data-page="about"] {
+	border-bottom: 2px solid #FF005C;
+}
+#vacancy a[data-page="vacancy"] {
+	border-bottom: 2px solid #FF005C;
+}
+#support a[data-page="support"] {
+	border-bottom: 2px solid #FF005C;
+}
+#tariff a[data-page="tariff"] {
+	border-bottom: 2px solid #FF005C;
+}
+
+@import "header";
+@import "main-page";
+@import "page";
+@import "tariff";
+@import "pay";
+
+@import "footer";

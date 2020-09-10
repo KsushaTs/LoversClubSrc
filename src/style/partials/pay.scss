@@ -1,0 +1,162 @@
+.pay {
+	background-color: #000000;
+	background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%), url(../img/tariff.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
+
+	&__content {
+		padding: 190px 0 190px;
+		min-height: 974px;
+		// width: 38%;
+		width: 430px;
+		margin: 0 auto;
+
+		@media screen and (max-width: $breakpoint-s) {
+			padding: 100px 0 70px;
+			min-height: 1px;
+		}
+
+		@media screen and (max-width: $breakpoint-xs) {
+			width: 100%;
+		}
+	}
+}
+
+.pay-form {
+	padding: 25px 25px 40px;
+	width: 100%;
+
+	&__text {
+		font-weight: bold;
+		text-align: center;
+		padding-bottom: 15px;
+	}
+
+	&__input-wrap {
+		padding-bottom: 20px;
+	}
+
+	&__input-wrap_tel {
+		display: flex;
+	}
+
+	&__select_tel {
+		width: 90px;
+		flex-shrink: 0;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	&__input_tel {
+		flex-grow: 1;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	&__line {
+		padding: 5px 0;
+		background: rgba(255, 255, 255, 0.2);
+
+		span {
+			display: block;
+			width: 1px;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.7);
+		}
+	}
+
+	&__label-text {
+		font-size: 16px;
+		line-height: 1.4;
+		text-align: center;
+		color: #FFFFFF;
+		background: rgba($color: #FF005C, $alpha: 0.7);
+		padding: 10px 0;
+		margin: 0 -25px 27px;
+	}
+
+	&__label {
+		display: flex;
+		align-items: center;
+	}
+
+	&__input-wrap_cb {
+		font-size: 14px;
+		line-height: 1.4;
+
+		color: #FFFFFF;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	&__link {
+		padding-left: 5px;
+		color: #FFFFFF;
+		text-decoration: underline;
+	}
+
+	&__button:disabled {
+		background: #686868;
+		color: #B9B9B9;
+		box-shadow: none;
+	}
+}
+
+/* Customize the label (the container) */
+.checkbox-container {
+	// display: block;
+	position: relative;
+	padding-left: 35px;
+	cursor: pointer;
+	user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+	height: 19px;
+	width: 19px;
+	margin: 0;
+	z-index: -1;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 19px;
+	width: 19px;
+	border-radius: 3px;
+	border: 1px solid #FFFFFF;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked~.checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+	left: 6px;
+	top: 2px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+}
